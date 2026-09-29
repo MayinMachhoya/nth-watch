@@ -1,0 +1,347 @@
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+/* ═══════════════════════════════════════════════════════════════
+   NTH WATCH — "Projection Room"
+   Warm ink blacks, paper-white type, a vermilion projector-lamp
+   accent and brass for scores. Serif display, grotesk UI, mono
+   metadata. Hairline rules instead of soft shadows. Film grain.
+   Every Tailwind token in tailwind.config.js resolves to a variable
+   defined here.
+   ═══════════════════════════════════════════════════════════════ */
+
+:root,
+.theme-dark {
+  /* ── Color: dark (default) ─────────────────────────────────── */
+  --ink: #0d0c0b;
+  --ink-deep: #080707;
+  --surface: #151311;
+  --surface-raised: #1d1a17;
+  --surface-hover: #26221e;
+
+  --line: rgba(243, 236, 226, 0.09);
+  --line-strong: rgba(243, 236, 226, 0.2);
+
+  --fg: #f3ece2;
+  --fg-muted: #aca296;
+  --fg-subtle: #776e64;
+
+  --accent: #c90345;
+  --accent-strong: #5c001f;
+  --accent-ink: #170803;
+  --accent-wash: rgba(255, 82, 34, 0.12);
+
+  --brass: #e8b85c;
+  --positive: #9ccc80;
+  --negative: #f2585c;
+
+  --scrim: rgba(8, 7, 7, 0.82);
+  --scrim-soft: rgba(8, 7, 7, 0.55);
+  --scrim-solid: rgba(5, 5, 5, 0.96);
+  --on-image: #f8f3ec;
+  --brass-on-image: #e8b85c; /* badges over imagery — same in both themes */
+  --imdb: #f5c518;
+  --imdb-ink: #111111;
+
+  --grain-opacity: 0.07;
+  --poster-stripe: rgba(243, 236, 226, 0.035);
+
+  color-scheme: dark;
+}
+
+/* `.theme-dark` pins a subtree to the dark palette in either theme — used for
+   imagery with a dark overlay (hero banner, movie backdrop). */
+.theme-dark {
+  color: var(--fg-muted);
+}
+
+:root {
+  /* ── Type ──────────────────────────────────────────────────── */
+  --font-display: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+  --font-sans: "Hanken Grotesk", "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", "Cascadia Mono", Consolas, monospace;
+
+  --text-micro: 0.6875rem; /* 11 — mono labels */
+  --text-caption: 0.75rem; /* 12 */
+  --text-small: 0.8125rem; /* 13 */
+  --text-body: 0.9375rem; /* 15 */
+  --text-lead: 1.125rem; /* 18 */
+  --text-title: 1.5rem; /* 24 */
+  --text-section: clamp(1.625rem, 1.25rem + 1.2vw, 2.25rem);
+  --text-heading: clamp(2rem, 1.4rem + 2vw, 3rem);
+  --text-display: clamp(2.75rem, 1.6rem + 4.4vw, 5.25rem);
+  --text-mega: clamp(3.25rem, 1.6rem + 7vw, 8rem);
+
+  --leading-tight: 1.2;
+  --leading-snug: 1.4;
+  --leading-body: 1.6;
+  --leading-display: 0.95;
+  --leading-mega: 0.86;
+
+  --tracking-tightest: -0.035em;
+  --tracking-tight: -0.015em;
+  --tracking-wide: 0.04em;
+  --tracking-label: 0.16em;
+
+  /* ── Space (4px base) ──────────────────────────────────────── */
+  --space-3xs: 0.125rem; /* 2  */
+  --space-2xs: 0.25rem; /* 4  */
+  --space-xs: 0.5rem; /* 8  */
+  --space-sm: 0.75rem; /* 12 */
+  --space-md: 1rem; /* 16 */
+  --space-lg: 1.5rem; /* 24 */
+  --space-xl: 2rem; /* 32 */
+  --space-2xl: 3rem; /* 48 */
+  --space-3xl: 4rem; /* 64 */
+  --space-4xl: 6rem; /* 96 */
+  --space-gutter: clamp(1rem, 0.4rem + 2.6vw, 2.5rem);
+
+  /* ── Component sizes ───────────────────────────────────────── */
+  --size-rule: 2px;
+  --size-sidebar: 16rem;
+  --size-control-sm: 2rem;
+  --size-control: 2.5rem;
+  --size-control-lg: 3rem;
+  --size-thumb-w: 2.5rem;
+  --size-thumb-h: 3.5rem;
+  --size-avatar-md: 4rem;
+  --size-avatar-lg: 6rem;
+  --size-avatar-xl: 7.5rem;
+  --size-rail-sm: 8.75rem;
+  --size-rail: 10rem;
+  --size-cast-sm: 7rem;
+  --size-cast: 8.75rem;
+  --size-shot-sm: 13.75rem;
+  --size-shot-md: 17.5rem;
+  --size-shot: 25rem;
+  --size-poster-sm: 15rem;
+  --size-poster-md: 17.5rem;
+  --size-poster: 20rem;
+  --size-profile-sm: 12.5rem;
+  --size-profile: 17.5rem;
+  --size-hero: clamp(22rem, 12rem + 30vw, 36rem);
+  --size-backdrop: clamp(20rem, 10rem + 38vw, 44rem);
+  --size-backdrop-offset: clamp(9rem, 4rem + 18vw, 22rem);
+  --size-dropdown: 30rem;
+  --size-dropdown-h: 30rem;
+  --size-panel-min: 26rem;
+  --size-modal-h: 44rem;
+  --size-sheet-h: 88vh;
+  --size-settings-nav: 15rem;
+  --size-field-sm: 12rem;
+  --size-dock-clearance: 5.5rem;
+  --size-empty-h: 55vh;
+  --size-spinner: 9rem;
+  /* Logo width — fluid, so it scales with the viewport instead of stepping */
+  --size-logo: clamp(6.5rem, 5rem + 3vw, 8rem); /* navbar, below lg */
+  --size-logo-sidebar: clamp(8.5rem, 4rem + 6vw, 11rem); /* sidebar, lg and up */
+
+  --width-page: 80rem;
+  --width-prose: 44rem;
+  --width-form: 26rem;
+  --width-modal: 36rem;
+  --width-search: 38rem;
+  --width-panel: 48rem;
+  --width-lightbox: 92vw;
+  --height-lightbox: 84vh;
+
+  /* ── Shape, depth, layers ──────────────────────────────────── */
+  --opacity-disabled: 0.4;
+  --opacity-muted: 0.6;
+
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+
+  --shadow-hard: 3px 3px 0 0 var(--accent-strong);
+  --shadow-lift: 0 24px 48px -28px rgba(0, 0, 0, 0.8);
+
+  --z-raised: 10;
+  --z-nav: 30;
+  --z-dropdown: 40;
+  --z-dock: 45;
+  --z-modal: 60;
+  --z-toast: 70;
+  --z-top: 100;
+
+  /* ── Motion ────────────────────────────────────────────────── */
+  --dur-fast: 120ms;
+  --dur-base: 220ms;
+  --dur-slow: 480ms;
+  --dur-slower: 900ms;
+  --dur-shimmer: 1.6s;
+  --dur-carousel: 7s;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --rise-distance: 10px;
+  --scale-hover: 1.04;
+  --scale-out: 0.95;
+  --stagger-step: 45ms;
+
+  color-scheme: dark;
+}
+
+/* ── Color: light ("newsprint") ────────────────────────────────── */
+.light-mode {
+  --ink: #d1cfb1;
+  --ink-deep: #c4bf8b;
+  --surface: #e4e2c7;
+  --surface-raised: #e4e2c7;
+  --surface-hover: #e4e2c7;
+
+  --line: rgba(28, 22, 16, 0.11);
+  --line-strong: rgba(28, 22, 16, 0.24);
+
+  --fg: #1b1611;
+  --fg-muted: #5c5349;
+  --fg-subtle: #8a8176;
+
+  --accent: #c90345;
+  --accent-strong: #5c001f;
+  --accent-ink: #1a0802;
+  --accent-wash: rgba(226, 67, 15, 0.1);
+
+  --brass: #9a6a0c;
+  --positive: #3d7a2b;
+  --negative: #c42a2f;
+
+  --scrim: rgba(27, 22, 17, 0.62);
+  --scrim-soft: rgba(27, 22, 17, 0.35);
+
+  --grain-opacity: 0.05;
+  --poster-stripe: rgba(28, 22, 16, 0.04);
+  --shadow-lift: 0 24px 48px -30px rgba(40, 28, 16, 0.45);
+
+  color-scheme: light;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   BASE
+   ═══════════════════════════════════════════════════════════════ */
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background: var(--ink);
+    color: var(--fg-muted);
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--leading-body);
+  }
+
+  ::selection {
+    background: var(--accent);
+    color: var(--accent-ink);
+  }
+
+  :focus-visible {
+    outline: var(--size-rule) solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  /* Film grain — sits above everything, never intercepts input. */
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: var(--z-top);
+    pointer-events: none;
+    opacity: var(--grain-opacity);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.5 0 0 0 0 0.5 0 0 0 0 0.5 0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   UTILITIES
+   ═══════════════════════════════════════════════════════════════ */
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Stagger an `animate-rise` list: set style={{ '--i': index }} */
+  .stagger {
+    animation-delay: calc(min(var(--i, 0), 14) * var(--stagger-step));
+  }
+
+  /* Mono metadata label — the "credits" voice of the UI. */
+  .label {
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+  }
+
+  /* Skeleton sweep */
+  .skeleton {
+    background: linear-gradient(
+      90deg,
+      var(--surface) 0%,
+      var(--surface-hover) 50%,
+      var(--surface) 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer var(--dur-shimmer) linear infinite;
+  }
+
+  /* Placeholder poster: diagonal hatching, like an unexposed frame. */
+  .poster-fallback {
+    background-color: var(--surface-raised);
+    background-image: repeating-linear-gradient(
+      135deg,
+      var(--poster-stripe) 0 1px,
+      transparent 1px 9px
+    );
+  }
+
+  /* Backdrop fades into the page colour. */
+  .fade-to-ink-b {
+    background: linear-gradient(
+      to top,
+      var(--ink) 0%,
+      color-mix(in srgb, var(--ink) 70%, transparent) 38%,
+      transparent 100%
+    );
+  }
+
+  .fade-to-ink-r {
+    background: linear-gradient(
+      to right,
+      var(--ink) 0%,
+      color-mix(in srgb, var(--ink) 55%, transparent) 45%,
+      transparent 80%
+    );
+  }
+}
+
+/* Hero carousel: the slide timer pauses while the pointer is over the
+   carousel or a control inside it has keyboard focus. */
+.carousel:hover .carousel-progress,
+.carousel:has(:focus-visible) .carousel-progress {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* No auto-advance — the slide only changes when the user asks. */
+  .carousel-progress {
+    animation: none !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+  }
+}

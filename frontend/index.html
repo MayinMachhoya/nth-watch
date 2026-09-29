@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary -->
+    <title>Nth Watch</title>
+    <meta
+      name="description"
+      content="Nth Watch recommends movies you'll actually want to watch. Rate what you've seen, pick a mood or genre, and get personalised picks from a hybrid recommendation engine."
+    />
+    <meta name="application-name" content="Nth Watch" />
+    <meta name="robots" content="index, follow" />
+    <meta
+      name="theme-color"
+      content="#0d0c0b"
+      media="(prefers-color-scheme: dark)"
+    />
+    <meta
+      name="theme-color"
+      content="#f0ebe2"
+      media="(prefers-color-scheme: light)"
+    />
+
+    <!-- Icons -->
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Nth Watch" />
+    <meta
+      property="og:title"
+      content="Nth Watch — Personalised Movie Recommendations"
+    />
+    <meta
+      property="og:description"
+      content="Rate what you've seen, pick a mood, and get movie picks tuned to your taste."
+    />
+    <meta property="og:image" content="/banner.png" />
+    <meta property="og:image:alt" content="Nth Watch — movie recommendations" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Nth Watch — Personalised Movie Recommendations"
+    />
+    <meta
+      name="twitter:description"
+      content="Rate what you've seen, pick a mood, and get movie picks tuned to your taste."
+    />
+    <meta name="twitter:image" content="/banner.png" />
+
+    <!-- Structured data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Nth Watch",
+        "applicationCategory": "EntertainmentApplication",
+        "operatingSystem": "Any",
+        "description": "Personalised movie recommendations based on your ratings, favourite genres and mood.",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+      }
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://image.tmdb.org" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
