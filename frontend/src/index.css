@@ -231,11 +231,15 @@
     font-family: var(--font-sans);
     font-size: var(--text-body);
     line-height: var(--leading-body);
-    -ms-overflow-style: none;
-    scrollbar-width: none;
   }
 
-  body::-webkit-scrollbar {
+  /* Universally hide scrollbars */
+  * {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  *::-webkit-scrollbar {
     display: none;
   }
 
